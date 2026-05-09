@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purpose Driven Ministries International</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-gold: #D4AF37;
+      --primary-dark: #1a1a1a;
+      --primary-green: #2d5016;
+      --accent-light: #f5f1e8;
+      --text-dark: #2c2c2c;
+      --text-light: #6b6b6b;
+      --white: #ffffff;
+      --border-color: #e0e0e0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      background-color: var(--white);
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    .logo-text-sub {
+      font-size: 0.7rem;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin-left: auto;  
+}
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-gold);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .cta-nav {
+      background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-green) 100%);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .cta-nav:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    /* ADMIN BUTTON */
+    .admin-btn {
+      background: var(--text-dark);
+      color: var(--white);
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      margin-left: 0.5rem;
+    }
+
+    .admin-btn:hover {
+      background: var(--primary-gold);
+      color: var(--primary-dark);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      margin-top: 100px;
+      min-height: 70vh;
+      background: linear-gradient(135deg, var(--accent-light) 0%, #f0ebe0 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(45, 80, 22, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text {
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--white);
+      border: 2px solid var(--primary-gold);
+      color: var(--primary-gold);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.1;
+      margin: 1rem 0;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin: 1.5rem 0 2rem;
+    }
+
+    .hero-image {
+      position: relative;
+      animation: slideInRight 1s ease 0.3s both;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-green) 100%);
+      color: var(--white);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--primary-gold);
+      border: 2px solid var(--primary-gold);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-gold);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    /* KEYFRAME ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* SECTION STYLES */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* SERVICES SECTION */
+    #services {
+      background: linear-gradient(180deg, var(--white) 0%, var(--accent-light) 100%);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary-gold);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin: 1rem 0;
+      color: var(--primary-dark);
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* EVENTS SECTION */
+    #events {
+      background: var(--white);
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-light);
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .tab-btn.active {
+      color: var(--primary-gold);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--primary-gold);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .event-card {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #f9f7f3 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .event-card:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .event-header {
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-green) 100%);
+      color: var(--white);
+    }
+
+    .event-date {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-body {
+      padding: 2rem;
+    }
+
+    .event-desc {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .event-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .event-meta strong {
+      color: var(--primary-dark);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-light);
+    }
+
+    .empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* GALLERY SECTION */
+    #gallery {
+      background: linear-gradient(180deg, var(--accent-light) 0%, var(--white) 100%);
+    }
+
+    .gallery-grid {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      flex-wrap: nowrap;
+      flex-direction: row-reverse;
+    }
+
+    .gallery-grid::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .gallery-grid::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+    }
+
+    .gallery-grid::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 999px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      min-width: 220px;
+      max-width: 240px;
+      flex: 0 0 auto;
+      aspect-ratio: 1.2 / 1;
+      cursor: pointer;
+      scroll-snap-align: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .gallery-overlay-text {
+      color: var(--white);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-align: center;
+    }
+
+    .gallery-item:hover .gallery-overlay-text {
+      opacity: 1;
+    }
+
+    /* SPEAKERS SECTION */
+    #speakers {
+      background: var(--white);
+    }
+
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .speaker-card {
+      text-align: center;
+      background: linear-gradient(135deg, var(--accent-light) 0%, #f9f7f3 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .speaker-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary-gold);
+    }
+
+    .speaker-avatar {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary-gold);
+    }
+
+    .speaker-badge {
+      display: inline-block;
+      background: var(--primary-gold);
+      color: var(--white);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .speaker-badge.guest {
+      background: var(--text-light);
+    }
+
+    .speaker-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .speaker-title {
+      color: var(--primary-gold);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .speaker-desc {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* BOOKING SECTION */
+    #booking {
+      background: linear-gradient(180deg, var(--white) 0%, var(--accent-light) 100%);
+    }
+
+    .booking-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .booking-form {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary-gold);
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-note {
+      background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-green) 100%);
+      color: var(--white);
+      border-left: 4px solid var(--primary-gold);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
+    }
+
+    /* TRANSPORT SECTION */
+    .transport-box {
+      background: linear-gradient(135deg, var(--primary-green) 0%, #1e3a0f 100%);
+      color: var(--white);
+      padding: 3rem;
+      border-radius: 12px;
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .transport-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .transport-locations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .location-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-info {
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-info strong {
+      display: block;
+      color: var(--primary-gold);
+      margin-bottom: 0.5rem;
+    }
+
+    /* SERVICE TIMES SECTION */
+    .service-times {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .time-item {
+      background: linear-gradient(135deg, var(--accent-light) 0%, #f9f7f3 100%);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .time-item h4 {
+      color: var(--primary-gold);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .time-item p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--primary-dark);
+      color: var(--white);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--primary-gold);
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 1rem;
+    }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+
+    .footer-links a {
+      color: var(--primary-gold);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      margin-top: 2rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    /* ADMIN PANEL STYLES */
+    .admin-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .admin-modal.active {
+      display: flex;
+    }
+
+    .admin-modal-content {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .admin-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 1rem;
+    }
+
+    .admin-modal-header h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-dark);
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-light);
+    }
+
+    .event-list {
+      margin-top: 1.5rem;
+    }
+
+    .event-list-item {
+      background: var(--accent-light);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .event-list-item-info h4 {
+      color: var(--primary-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .event-list-item-info p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .event-list-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-small {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-delete {
+      background: #dc3545;
+      color: var(--white);
+    }
+
+    .btn-delete:hover {
+      background: #c82333;
+    }
+
+    .btn-edit {
+      background: var(--primary-gold);
+      color: var(--white);
+    }
+
+    .btn-edit:hover {
+      background: #c49b2a;
+    }
+
+    .success-message {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border: 1px solid #c3e6cb;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: fadeInUp 0.5s ease;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 3rem 1.5rem;
+      }
+
+      .booking-form {
+        padding: 1.5rem;
+      }
+
+      .transport-box {
+        padding: 2rem;
+      }
+
+      .footer-contact,
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .gallery-grid {
+        gap: 1rem;
+      }
+
+      .gallery-item {
+        min-width: 240px;
+      }
+
+      .tabs {
+        gap: 0.5rem;
+      }
+
+      .tab-btn {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.7rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 0.7rem;
+      }
+
+      .gallery-grid {
+        gap: 0.75rem;
+      }
+
+      .gallery-item {
+        min-width: 180px;
+      }
+
+      .service-times {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo-section">
+        <img src="logo.JPG" alt="PDMI Logo" class="logo-img">
+        <div class="logo-text">
+          <div class="logo-text-main">PURPOSE DRIVEN</div>
+          <div class="logo-text-sub">MINISTRIES INTERNATIONAL</div>
+        </div>
+      
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#speakers">Leadership</a></li>
+      </ul>
+      <div style="display: flex; gap: 0.5rem;">
+        <a href="#booking" class="cta-nav">Book Now</a>
+        <button class="admin-btn" onclick="openAdminPanel()">Admin</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">🎉 4 Years of Faithful Ministry</div>
+        <h1>Purpose Driven Ministries International</h1>
+        <p>Growing in faith, purpose, and community with power and vision</p>
+        <div class="hero-cta">
+          <a href="#booking" class="btn btn-primary">Book a Pastoral Session</a>
+          <a href="#events" class="btn btn-secondary">Explore Events</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="Face_of_PDMI.png" alt="Apostle P & Minister M Kabelo">
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Why Choose PDMI?</h2>
+      <p class="section-subtitle">Experience a vibrant community dedicated to spiritual growth and purpose-driven living</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🙏</div>
+          <h3>Spiritual Growth</h3>
+          <p>Deepen your faith through powerful, word-based teaching rooted in biblical truth and contemporary relevance.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🤝</div>
+          <h3>Vibrant Community</h3>
+          <p>Connect with believers from all walks of life and build meaningful relationships that support your spiritual journey.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚐</div>
+          <h3>Free Transport</h3>
+          <p>We provide complimentary transportation from Mankweng, Ga-Thoka, Seshego and surrounding locations to all services.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👨‍💼</div>
+          <h3>Pastoral Care</h3>
+          <p>Access one-on-one sessions with experienced pastoral leadership for counseling, guidance, and prayer.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📚</div>
+          <h3>Biblical Teaching</h3>
+          <p>Engage with transformative biblical principles designed to equip you for a life of purpose and impact.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📸</div>
+          <h3>Church Community</h3>
+          <p>Join a thriving ministry fellowship with inspiring events, powerful worship, and transformation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS SECTION -->
+  <section id="events">
+    <div class="container">
+      <h2 class="section-title">Events & Conferences</h2>
+      <p class="section-subtitle">Join us for powerful gatherings that will transform your spiritual journey</p>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="upcoming">Upcoming Events</button>
+        <button class="tab-btn" data-tab="past">Past Conferences</button>
+      </div>
+
+      <!-- UPCOMING EVENTS -->
+      <div class="tab-content active" id="upcoming">
+        <div class="empty-state">
+          <div class="empty-state-icon">📅</div>
+          <h3>No Upcoming Events</h3>
+          <p>New events will be announced soon! Check back regularly for updates.</p>
+        </div>
+      </div>
+
+      <!-- PAST CONFERENCES -->
+      <div class="tab-content" id="past">
+        <div class="event-card">
+          <div class="event-header">
+            <div class="event-date">📅 April 17-19, 2026</div>
+            <div class="event-title">4 Years Anniversary Celebration</div>
+          </div>
+          <div class="event-body">
+            <div class="event-desc">A magnificent celebration of God's faithfulness over four years of ministry. Bishop Sekete graced us with powerful prophetic ministry and spiritual insight.</div>
+            <div class="event-meta">
+              <div><strong>Hosts:</strong> Apostle P & Minister M Kabelo</div>
+              <div><strong>Special Guest:</strong> Bishop Sekete</div>
+              <div><strong>Location:</strong> Polokwane</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-subtitle">Moments from our church services and events</p>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-13.jpg" alt="PDMI gallery photo 1">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-13 2.jpg" alt="PDMI gallery photo 2">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-12.jpg" alt="PDMI gallery photo 3">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-12 2.jpg" alt="PDMI gallery photo 4">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-11.jpg" alt="PDMI gallery photo 5">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-11 2.jpg" alt="PDMI gallery photo 6">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-10.jpg" alt="PDMI gallery photo 7">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-10 2.jpg" alt="PDMI gallery photo 8">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-09.jpg" alt="PDMI gallery photo 9">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-09 2.jpg" alt="PDMI gallery photo 10">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-08.jpg" alt="PDMI gallery photo 11">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-07.jpg" alt="PDMI gallery photo 12">
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/PHOTO-2025-08-02-12-17-07 2.jpg" alt="PDMI gallery photo 13">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP SECTION -->
+  <section id="speakers">
+    <div class="container">
+      <h2 class="section-title">Our Leadership</h2>
+      <p class="section-subtitle">Meet the anointed leaders who guide Purpose Driven Ministries International</p>
+
+      <div class="speakers-grid">
+        <div class="speaker-card">
+          <img src="pkabelo.jpg" alt="Apostle P Kabelo" class="speaker-avatar">
+          <div class="speaker-name">Apostle P Kabelo</div>
+          <div class="speaker-title">Senior Pastor & Founder</div>
+          <div class="speaker-desc">With a passion for purpose-driven ministry, Apostle P leads with vision, wisdom, and unwavering faith in God's purpose for our nation.</div>
+        </div>
+
+        <div class="speaker-card">
+          <img src="mkabelo.JPG" alt="Minister M Kabelo" class="speaker-avatar">
+          <div class="speaker-name">Minister M Kabelo</div>
+          <div class="speaker-title">Co-Pastor</div>
+          <div class="speaker-desc">A powerful minister anointed to teach, pray, and impact lives. Minister M brings grace and strength to our pastoral team's vision.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUEST SPEAKERS SECTION -->
+  <section style="background: linear-gradient(180deg, var(--white) 0%, var(--accent-light) 100%);">
+    <div class="container">
+      <h2 class="section-title">Speakers PDMI Has Hosted</h2>
+      <p class="section-subtitle">Powerful voices who have ministered and blessed our congregation</p>
+
+      <div class="speakers-grid">
+        <div class="speaker-card">
+          <img src="sammy.JPG" alt="Pastor Sammy Ralekholela" class="speaker-avatar">
+          <div class="speaker-name">Pastor Sammy Ralekholela</div>
+          <div class="speaker-title">Inspirational Speaker</div>
+          <div class="speaker-desc">An inspired speaker and teacher who brings fresh revelation and transformative insights to God's Word.</div>
+        </div>
+
+        <div class="speaker-card">
+          <img src="ral.JPG" alt="Prophet T.A. Ralekholela" class="speaker-avatar">
+          <div class="speaker-name">Prophet T.A. Ralekholela</div>
+          <div class="speaker-title">Prophetic Voice</div>
+          <div class="speaker-desc">A powerful prophetic voice who brings revelation and prophetic insight to the body of Christ.</div>
+        </div>
+
+        <div class="speaker-card">
+          <img src="sekete.JPG" alt="Bishop Sekete" class="speaker-avatar">
+          <div class="speaker-name">Bishop Sekete</div>
+          <div class="speaker-title">Guest Minister & Theologian</div>
+          <div class="speaker-desc">A seasoned theologian and prophetic voice who graced our 4-year Anniversary with powerful ministry and prophetic insight.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING SECTION -->
+  <section id="booking">
+    <div class="container booking-container">
+      <h2 class="section-title">Book a Pastoral Session</h2>
+      <p class="section-subtitle">Receive one-on-one spiritual guidance, counseling, or prayer from our pastoral team</p>
+
+      <div class="booking-form">
+        <div id="successMessage" class="success-message">
+          Your booking request has been received! We'll confirm within 24 hours via email.
+        </div>
+
+        <form id="bookingForm">
+          <div class="form-note">
+            We offer confidential pastoral sessions for spiritual guidance, counseling, prayer requests, and life coaching based on biblical principles.
+          </div>
+
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
+          </div>
+
+          <div class="form-group">
+            <label for="date">Preferred Date *</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+
+          <div class="form-group">
+            <label for="time">Preferred Time *</label>
+            <select id="time" name="time" required>
+              <option value="">Select a time slot</option>
+              <option value="9:00 AM">9:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="2:00 PM">2:00 PM</option>
+              <option value="4:00 PM">4:00 PM</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="pastor">Preferred Pastor *</label>
+            <select id="pastor" name="pastor" required>
+              <option value="">Select a pastor</option>
+              <option value="Apostle P Kabelo">Apostle P Kabelo</option>
+              <option value="Minister M Kabelo">Minister M Kabelo</option>
+              <option value="Any Available">Any Available</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="purpose">Purpose of Visit *</label>
+            <textarea id="purpose" name="purpose" required placeholder="Please describe the reason for your visit (e.g., spiritual guidance, counseling, prayer request, life coaching)"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Request Session</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPORT SECTION -->
+  <section id="contact">
+    <div class="container">
+      <div class="transport-box">
+        <h3>Free Transport Available</h3>
+        <p style="font-size: 1.1rem; margin-bottom: 1rem;">We provide complimentary transportation to all services and events from:</p>
+        <div class="transport-locations">
+          <div class="location-item">
+            <strong>Mankweng</strong>
+          </div>
+          <div class="location-item">
+            <strong>Ga-Thoka</strong>
+          </div>
+          <div class="location-item">
+            <strong>Seshego</strong>
+          </div>
+          <div class="location-item">
+            <strong>Surrounding Locations</strong>
+          </div>
+        </div>
+        <div class="contact-info">
+          <strong>Contact for Transport:</strong>
+          <span>📱 063 490 0464 | 077 244 1768</span>
+        </div>
+      </div>
+
+      <h2 class="section-title mt-2">Service Times & Location</h2>
+
+      <div class="service-times">
+        <div class="time-item">
+          <h4>⏰ Wednesday</h4>
+          <p>Service<br>5:00 PM - 7:30 PM</p>
+        </div>
+        <div class="time-item">
+          <h4>⏰ Sunday</h4>
+          <p>Service<br>10:00 AM</p>
+        </div>
+        <div class="time-item">
+          <h4>📍 Location</h4>
+          <p>PDMI Headquarters<br>Nobody, GA Mothapo<br>Polokwane</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">✨ Purpose Driven Ministries International</div>
+      <p class="footer-text">Celebrating 4 years of faithful ministry, spiritual growth, and community transformation</p>
+
+      <div class="footer-contact">
+        <div>📱 063 490 0464</div>
+        <div>📱 077 244 1768</div>
+        <div>📍 Nobody, GA Mothapo, Polokwane</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#speakers">Leadership</a>
+        <a href="#booking">Book Session</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Purpose Driven Ministries International. All rights reserved.</p>
+        <p>Designed with faith and excellence | Proverbs 19:21</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ADMIN MODAL -->
+  <div class="admin-modal" id="adminModal">
+    <div class="admin-modal-content">
+      <div class="admin-modal-header">
+        <h2>Admin Panel - Event Management</h2>
+        <button class="close-btn" onclick="closeAdminPanel()">✕</button>
+      </div>
+
+      <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--border-color);">
+        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Add New Event</h3>
+        <form id="eventForm">
+          <div class="form-group">
+            <label for="eventTitle">Event Title *</label>
+            <input type="text" id="eventTitle" required placeholder="e.g., Youth Conference 2025">
+          </div>
+
+          <div class="form-group">
+            <label for="eventDate">Date *</label>
+            <input type="date" id="eventDate" required>
+          </div>
+
+          <div class="form-group">
+            <label for="eventDesc">Description *</label>
+            <textarea id="eventDesc" required placeholder="Event description" style="min-height: 80px;"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="eventLocation">Location *</label>
+            <input type="text" id="eventLocation" required placeholder="Event location">
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Add Event</button>
+        </form>
+      </div>
+
+      <div>
+        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Upcoming Events</h3>
+        <div class="event-list" id="eventListContainer">
+          <p style="color: var(--text-light); text-align: center;">No events yet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // EVENTS MANAGEMENT
+    let events = JSON.parse(localStorage.getItem('pdmiEvents')) || [];
+
+    function openAdminPanel() {
+      document.getElementById('adminModal').classList.add('active');
+      displayEvents();
+    }
+
+    function closeAdminPanel() {
+      document.getElementById('adminModal').classList.remove('active');
+    }
+
+    function displayEvents() {
+      const container = document.getElementById('eventListContainer');
+      if (events.length === 0) {
+        container.innerHTML = '<p style="color: var(--text-light); text-align: center;">No events yet</p>';
+        return;
+      }
+
+      container.innerHTML = events.map((event, index) => `
+        <div class="event-list-item">
+          <div class="event-list-item-info">
+            <h4>${event.title}</h4>
+            <p>${event.date} • ${event.location}</p>
+          </div>
+          <div class="event-list-actions">
+            <button class="btn-small btn-edit" onclick="editEvent(${index})">Edit</button>
+            <button class="btn-small btn-delete" onclick="deleteEvent(${index})">Delete</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function addEvent(e) {
+      e.preventDefault();
+      const event = {
+        title: document.getElementById('eventTitle').value,
+        date: document.getElementById('eventDate').value,
+        desc: document.getElementById('eventDesc').value,
+        location: document.getElementById('eventLocation').value
+      };
+
+      events.push(event);
+      localStorage.setItem('pdmiEvents', JSON.stringify(events));
+      document.getElementById('eventForm').reset();
+      displayEvents();
+      updateEventDisplay();
+      alert('Event added successfully!');
+    }
+
+    function deleteEvent(index) {
+      if (confirm('Delete this event?')) {
+        events.splice(index, 1);
+        localStorage.setItem('pdmiEvents', JSON.stringify(events));
+        displayEvents();
+        updateEventDisplay();
+      }
+    }
+
+    function editEvent(index) {
+      const event = events[index];
+      document.getElementById('eventTitle').value = event.title;
+      document.getElementById('eventDate').value = event.date;
+      document.getElementById('eventDesc').value = event.desc;
+      document.getElementById('eventLocation').value = event.location;
+      deleteEvent(index);
+    }
+
+    function updateEventDisplay() {
+      const upcomingContainer = document.getElementById('upcoming');
+      if (events.length === 0) {
+        upcomingContainer.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">📅</div>
+            <h3>No Upcoming Events</h3>
+            <p>New events will be announced soon! Check back regularly for updates.</p>
+          </div>
+        `;
+      } else {
+        upcomingContainer.innerHTML = events.map((event, index) => `
+          <div class="event-card">
+            <div class="event-header">
+              <div class="event-date">📅 ${event.date}</div>
+              <div class="event-title">${event.title}</div>
+            </div>
+            <div class="event-body">
+              <div class="event-desc">${event.desc}</div>
+              <div class="event-meta">
+                <div><strong>Location:</strong> ${event.location}</div>
+              </div>
+              <a href="#booking" class="btn btn-primary" style="width: 100%;">Register Now</a>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // TAB FUNCTIONALITY
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const tabName = this.getAttribute('data-tab');
+
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+
+        document.getElementById(tabName).classList.add('active');
+        this.classList.add('active');
+      });
+    });
+
+    // FORM SUBMISSION
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value,
+        pastor: document.getElementById('pastor').value,
+        purpose: document.getElementById('purpose').value,
+        timestamp: new Date().toISOString()
+      };
+
+      console.log('Booking Request:', formData);
+      localStorage.setItem('lastBooking', JSON.stringify(formData));
+
+      const successMessage = document.getElementById('successMessage');
+      successMessage.classList.add('show');
+      this.reset();
+
+      setTimeout(() => {
+        successMessage.classList.remove('show');
+      }, 5000);
+
+      successMessage.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // EVENT FORM SUBMISSION
+    document.getElementById('eventForm').addEventListener('submit', addEvent);
+
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // SET MINIMUM DATE
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+
+    // INITIALIZE
+    updateEventDisplay();
+
+    // CLOSE MODAL ON OUTSIDE CLICK
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('adminModal');
+      if (event.target == modal) {
+        modal.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
